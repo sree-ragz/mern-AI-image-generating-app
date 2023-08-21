@@ -21,11 +21,14 @@ const CreatePost = () => {
     if (form.photo) {
       try {
         setLoading(true);
-        const response = await axios.post("http://localhost:3000/api/v1/post", {
-          name: form.name,
-          prompt: form.prompt,
-          photo: form.photo,
-        });
+        const response = await axios.post(
+          "https://ai-server-dwye.onrender.com/api/v1/post",
+          {
+            name: form.name,
+            prompt: form.prompt,
+            photo: form.photo,
+          }
+        );
         console.log(response.data);
         navigate("/");
       } catch (error) {
@@ -52,9 +55,12 @@ const CreatePost = () => {
     if (form.prompt) {
       try {
         setGenerateImage(true);
-        const response = await axios.post("http://localhost:3000/api/v1/ai", {
-          prompt: form.prompt,
-        });
+        const response = await axios.post(
+          "https://ai-server-dwye.onrender.com/api/v1/ai",
+          {
+            prompt: form.prompt,
+          }
+        );
         const data = response.data;
         setForm({ ...form, photo: `data:image/jpeg;base64,${data.photo}` });
       } catch (err) {

@@ -32,7 +32,9 @@ const Home = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const fetchPosts = await axios.get("http://localhost:3000/api/v1/post");
+        const fetchPosts = await axios.get(
+          "https://ai-server-dwye.onrender.com/api/v1/post"
+        );
         const result = await fetchPosts.data;
         setAllPosts(result.data);
         console.log(allPosts);
