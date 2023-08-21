@@ -20,13 +20,10 @@ const Home = () => {
   const handleSearchChange = (e) => {
     setSearchText(e.target.value);
     setTimeout(() => {
-      const searchResults = allPosts.filter((item) =>
-        item.name
-          .toLowerCase()
-          .includes(
-            searchText.toLowerCase() ||
-              item.prompt.toLowerCase().includes(searchResults.toLowerCase())
-          )
+      const searchResults = allPosts.filter(
+        (item) =>
+          item.name.toLowerCase().includes(searchText.toLowerCase()) ||
+          item.prompt.toLowerCase().includes(searchText.toLowerCase())
       );
       setSearchResult(searchResults);
     }, 500);

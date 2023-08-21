@@ -10,7 +10,7 @@ const Card = ({ post }) => {
         src={post.photo}
         alt={post.prompt}
       />
-      <div className="group-hover:flex flex-col max-h-[94%] hidden absolute hidden absolute bottom-0 left-0 right-0 bg-[#10131f] m-2 p-4 rounded-md">
+      <div className="group-hover:flex flex-col max-h-[94%] hidden absolute bottom-0 left-0 right-0 bg-[#10131f] m-2 p-4 rounded-md">
         <p className="text-white text-sm overflow-y-auto">{post.prompt}</p>
         <button
           className="outline-none bg-transparent border-none"

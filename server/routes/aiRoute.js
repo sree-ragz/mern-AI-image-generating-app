@@ -1,8 +1,10 @@
 import express from "express";
+import * as dotenv from "dotenv";
 import { Configuration, OpenAIApi } from "openai";
+dotenv.config();
 const router = express.Router();
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: "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",
 });
 const openAi = new OpenAIApi(configuration);
 router.get("/", (req, res) => {
@@ -20,8 +22,8 @@ router.post("/", async (req, res) => {
     const image = response.data.data[0].b64_json;
     res.status(200).json({ photo: image });
   } catch (err) {
-    console.log(err);
-    res.status(500).send(err?.response.error.data);
+    console.log(err?.response);
+    res.status(500).send(err?.response.error);
   }
 });
 
