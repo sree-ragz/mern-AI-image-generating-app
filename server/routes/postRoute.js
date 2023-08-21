@@ -1,11 +1,13 @@
 import express from "express";
 import postModel from "../mongoDB/models.js";
 import { v2 as cloudinary } from "cloudinary";
+import * as dotenv from "dotenv";
+dotenv.config();
 const router = express.Router();
 cloudinary.config({
-  cloud_name: "dxighdrv8",
-  api_key: "893942749545274",
-  api_secret: "GuPBykojfPXPQ8kI1QCY0RDQj-o",
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API,
+  api_secret: process.env.CLOUDAPI_SECRET,
 });
 router.get("/", async (req, res) => {
   try {

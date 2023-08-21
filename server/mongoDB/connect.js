@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
-const connectDB = () => {
+const connectDB = (url) => {
   mongoose
-    .connect("mongodb://127.0.0.1:27017/aiDB")
+    .connect(url)
     .then(() => console.log("DB conected succesfully"))
     .catch((err) => console.log(err));
 };

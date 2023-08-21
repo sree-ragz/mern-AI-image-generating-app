@@ -16,11 +16,14 @@ app.get("/", (req, res) => {
   res.send("heloo daa");
 });
 
-app.listen(3000, () => {
+const startServer = async () => {
   try {
-    connectDB();
-    console.log("server running...on 3000");
+    connectDB(process.env.MONGODB_HOST);
+    app.listen(3000, () => {
+      console.log("server running...on 3000");
+    });
   } catch (err) {
     console.log(err);
   }
-});
+};
+startServer();
